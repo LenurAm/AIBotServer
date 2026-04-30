@@ -50,7 +50,7 @@ app.MapPost("/chat", async (ChatRequest req) =>
 		requestBody
 	);
 
-	var json = await response.Content.ReadFromJsonAsync<JsonElement>();
+	/*var json = await response.Content.ReadFromJsonAsync<JsonElement>();
 
 	var reply = json
 		.GetProperty("choices")[0]
@@ -58,7 +58,9 @@ app.MapPost("/chat", async (ChatRequest req) =>
 		.GetProperty("content")
 		.GetString();
 
-	return Results.Ok(reply);
+	return Results.Ok(reply);*/
+	var text = await response.Content.ReadAsStringAsync();
+	return Results.Ok(new { raw = text });
 });
 
 app.Run();

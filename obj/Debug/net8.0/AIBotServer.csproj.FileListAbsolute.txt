@@ -33,3 +33,4 @@ C:\Users\lenar\Documents\AI BOT\AIBotServer\bin\Debug\net8.0\Swashbuckle.AspNetC
 C:\Users\lenar\Documents\AI BOT\AIBotServer\obj\Debug\net8.0\AIBotServer.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\lenar\Documents\AI BOT\AIBotServer\obj\Debug\net8.0\AIBotSer.5FFA0B71.Up2Date
 C:\Users\lenar\Documents\AI BOT\AIBotServer\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\lenar\Documents\AI BOT\AIBotServer\obj\Debug\net8.0\AIBotServer.sourcelink.json
