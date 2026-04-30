@@ -33,7 +33,6 @@ app.MapPost("/chat", async (ChatRequest req) =>
 	var apiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
 
 	using var httpClient = new HttpClient();
-
 	httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {apiKey}");
 
 	var requestBody = new
@@ -50,7 +49,7 @@ app.MapPost("/chat", async (ChatRequest req) =>
 		requestBody
 	);
 
-	/*var json = await response.Content.ReadFromJsonAsync<JsonElement>();
+	var json = await response.Content.ReadFromJsonAsync<JsonElement>();
 
 	var reply = json
 		.GetProperty("choices")[0]
@@ -58,9 +57,7 @@ app.MapPost("/chat", async (ChatRequest req) =>
 		.GetProperty("content")
 		.GetString();
 
-	return Results.Ok(reply);*/
-	var text = await response.Content.ReadAsStringAsync();
-	return Results.Ok(new { raw = text });
+	return Results.Ok(new { reply });
 });
 
 app.Run();
