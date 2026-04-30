@@ -10,6 +10,8 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 app.MapGet("/",()=>"API is running!");
+
+
 var sampleTodos = new Todo[] {
 	new(1, "Walk the dog"),
 	new(2, "Do the dishes", DateOnly.FromDateTime(DateTime.Now)),
@@ -26,9 +28,9 @@ todosApi.MapGet("/{id}", (int id) =>
 	sampleTodos.FirstOrDefault(a => a.Id == id) is { } todo
 		? Results.Ok(todo)
 		: Results.NotFound());
-app.MapPost("/chat", async (string message) =>
+app.MapPost("/chat", async (ChatRequest req) =>
 {
-	var apiKey = "OPENAI_API_KEY";
+	var apiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
 
 	using var httpClient = new HttpClient();
 
@@ -39,7 +41,7 @@ app.MapPost("/chat", async (string message) =>
 		model = "gpt-4o-mini",
 		messages = new[]
 		{
-			new { role = "user", content = message }
+			new { role = "user", content = req.Message }
 		}
 	};
 
@@ -62,3 +64,4 @@ app.MapPost("/chat", async (string message) =>
 app.Run();
 
 public record Todo(int Id, string? Title, DateOnly? DueBy = null, bool IsComplete = false);
+public record ChatRequest(string Message);
