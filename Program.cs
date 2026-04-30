@@ -9,7 +9,7 @@ var app = builder.Build();
 
 app.UseSwagger();
 app.UseSwaggerUI();
-
+app.MapGet("/",()=>"API is running!");
 var sampleTodos = new Todo[] {
 	new(1, "Walk the dog"),
 	new(2, "Do the dishes", DateOnly.FromDateTime(DateTime.Now)),

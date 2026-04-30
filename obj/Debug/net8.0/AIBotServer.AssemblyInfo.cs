@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AIBotServer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+89720813902828c5c875bbe31b66f4b181411a83")]
 [assembly: System.Reflection.AssemblyProductAttribute("AIBotServer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AIBotServer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
