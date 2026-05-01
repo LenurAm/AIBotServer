@@ -1,4 +1,4 @@
-using System.Text.Json;
+﻿using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,9 +39,10 @@ app.MapPost("/chat", async (ChatRequest req) =>
 	{
 		model = "gpt-4o-mini",
 		messages = new[]
-		{
-			new { role = "user", content = req.Message }
-		}
+{
+	new { role = "system", content = "You are a friendly, fun AI who talks like a kind teacher for kids. Use emojis 😊 and simple words." },
+	new { role = "user", content = req.Message }
+}
 	};
 
 	var response = await httpClient.PostAsJsonAsync(
